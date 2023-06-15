@@ -7,8 +7,8 @@ int main() {
 
     char *file = "mainbis.py"; //Inserisci il nome del file sorgente in python da eseguire durante un processo in C. Attenzione il file in C e quello in python dovranno trovarsi nella stessa cartella
 
-    char *resolvedPath = realpath(file, NULL);
-    if (resolvedPath == NULL) {
+    char *newfile = realpath(file, NULL);
+    if (newfile == NULL) {
         printf("Errore nel ricavare il percorso del file!\n");
         return -1;
     }
@@ -22,7 +22,7 @@ int main() {
     
     else if (pid == 0) {
         // Codice del processo figlio
-        char *pythonFile = resolvedPath;
+        char *pythonFile = newfile;
         
         if (execlp("python3", "python3", pythonFile, NULL) == -1) {
             printf("Errore nell'esecuzione del file Python.\n");
