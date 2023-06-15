@@ -22,7 +22,7 @@ int main() {
     
     else if (pid == 0) {
         // Codice del processo figlio
-        char *pythonFile = resolvedPath; // Inserisci il percorso corretto del tuo file Python
+        char *pythonFile = resolvedPath;
         
         if (execlp("python3", "python3", pythonFile, NULL) == -1) {
             printf("Errore nell'esecuzione del file Python.\n");
