@@ -5,33 +5,33 @@
 
 int main() {
 
-    char *file = "mainbis.py"; //Inserisci il nome del file sorgente in python da eseguire durante un processo in C. Attenzione il file in C e quello in python dovranno trovarsi nella stessa cartella
+    char *file = "mainbis.py"; //Enter the name of the python source file to be executed during a C process. Attention, the C file and the python one must be in the same folder
 
     char *newfile = realpath(file, NULL);
     if (newfile == NULL) {
-        printf("Errore nel ricavare il percorso del file!\n");
+        printf("Error getting file path!\n");
         return -1;
     }
 
     pid_t pid = fork();
 
     if (pid == -1) {
-        printf("Errore nella creazione del processo figlio!\n");
+        printf("Error creating child process!\n");
         return -1;
     } 
     
     else if (pid == 0) {
-        // Codice del processo figlio
+        // Child process code
         char *pythonFile = newfile;
         
         if (execlp("python3", "python3", pythonFile, NULL) == -1) {
-            printf("Errore nell'esecuzione del file Python.\n");
+            printf("Error executing Python file\n");
             return -1;
         }
     } 
     
     else {
-        // Codice del processo padre
+        // Parent process code
         int status;
         waitpid(pid, &status, 0);
         
@@ -41,7 +41,7 @@ int main() {
             int signalNumber = WTERMSIG(status);
         }
     }
-    //da qui in poi puoi inserire tutto il resto del codice del processo padre, in C
+    //from here on you can put all the rest of the code of the parent process, in C
 
     return 0;
 }
