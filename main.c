@@ -5,7 +5,7 @@
 
 int main() {
 
-    char *file = "mainbis.py";
+    char *file = "mainbis.py"; //Inserisci il nome del file sorgente in python da eseguire durante un processo in C. Attenzione il file in C e quello in python dovranno trovarsi nella stessa cartella
 
     char *resolvedPath = realpath(file, NULL);
     if (resolvedPath == NULL) {
