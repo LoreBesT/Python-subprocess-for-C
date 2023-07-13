@@ -1,4 +1,4 @@
-### Python-subprocess-for-C
+# Python-subprocess-for-C
 A simple program that allows you to fork a C file by starting a python subprocess
 
 ### How to use
