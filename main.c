@@ -5,7 +5,7 @@
 
 int main() {
 
-    char *file = "mainbis.py"; //Enter the name of the python source file to be executed during a C process. Attention, the C file and the python one must be in the same folder
+    char *file = "main.py"; //Enter the name of the python source file to be executed during a C process. Attention, the C file and the python one must be in the same folder
 
     char *newfile = realpath(file, NULL);
     if (newfile == NULL) {
